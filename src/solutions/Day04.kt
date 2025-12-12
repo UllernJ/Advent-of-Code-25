@@ -1,10 +1,14 @@
 import utils.readInput
 
-val input = readInput("Day04").map { it.split("").filter { it -> it.isNotEmpty() } }
+val input = readInput("Day04")
+    .map { it ->
+        it.split("").filter { it.isNotEmpty() }.toMutableList()
+    }
+    .toMutableList()
 
 
 fun main() {
-    solvePart1()
+    solvePart2()
 }
 
 fun solvePart1() {
@@ -18,6 +22,27 @@ fun solvePart1() {
         }
     }
     println(sum)
+}
+
+fun solvePart2() {
+    println(clearPapers(input))
+}
+
+fun clearPapers(list: MutableList<MutableList<String>>, count: Int = 0): Int {
+    var counter = count
+    for (x in input.indices) {
+        for (y in list[x].indices) {
+            val atNeighbors = list.checkNeighbors(x, y).count { it == "@" }
+            if (list[x][y] == "@" && atNeighbors < 4) {
+                list[x][y] = "."
+                counter++
+            }
+        }
+    }
+    if (counter != count) {
+        return clearPapers(list, counter)
+    }
+    return counter
 }
 
 
