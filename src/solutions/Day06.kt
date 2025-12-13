@@ -8,7 +8,7 @@ fun main() {
     solvePart1()
 }
 
-fun solvePart1() {
+private fun solvePart1() {
     val map = mutableMapOf<Int, MutableList<Int>>()
     var sum = 0L
     input.forEach { it ->
