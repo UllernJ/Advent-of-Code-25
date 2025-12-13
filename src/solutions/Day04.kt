@@ -1,6 +1,6 @@
 import utils.readInput
 
-val input = readInput("Day04")
+private val input = readInput("Day04")
     .map { it ->
         it.split("").filter { it.isNotEmpty() }.toMutableList()
     }

@@ -2,7 +2,7 @@ package solutions
 
 import utils.readInput
 
-val input = readInput("Day03")
+private val input = readInput("Day03")
     .map { it -> it.split("")
     .filter { !it.isEmpty() }
     .map(String::toInt) }
